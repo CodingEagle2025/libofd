@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+include /usr/share/dpkg/default.mk
+export QT_SELECT=5
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+%:
+	dh $@ --parallel
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DAPP_VERSION=$(DEB_VERSION_UPSTREAM) \
+		-DVERSION=$(DEB_VERSION_UPSTREAM) \
+		-DLIB_INSTALL_DIR=/usr/lib/$(DEB_HOST_MULTIARCH)
+
+override_dh_strip:
+
+override_dh_shlibdeps:
+	dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
+
+override_dh_missing:
+	dh_missing --fail-missing
+
+# Skip tests during build
+override_dh_auto_test:
+	: 

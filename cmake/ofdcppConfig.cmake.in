@@ -1,0 +1,8 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+find_dependency(Qt5 COMPONENTS Core Gui Widgets Xml REQUIRED)
+find_dependency(QuaZip5 REQUIRED)
+
+include("${CMAKE_CURRENT_LIST_DIR}/ofdcppTargets.cmake") 

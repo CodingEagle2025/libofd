@@ -1,0 +1,29 @@
+Source: libofdcpp
+Section: libs
+Priority: optional
+Maintainer: Liu zheng <liuzheng@uniontech.com>
+Build-Depends: debhelper-compat (= 11),
+               cmake,
+               qtbase5-dev,
+               libquazip5-dev
+Standards-Version: 4.5.0
+Homepage: https://your-project-homepage.com
+
+Package: libofdcpp0
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: C++ library for OFD file format handling
+ A C++ library for reading and writing OFD files.
+ This library provides functionality for creating, reading, and manipulating
+ OFD format documents.
+
+Package: libofdcpp-dev
+Section: libdevel
+Architecture: any
+Depends: libofdcpp0 (= ${binary:Version}),
+         ${misc:Depends}
+Description: Development files for libofdcpp
+ Development files for the OFD format library.
+ This package contains the development files for libofdcpp, including
+ headers and static libraries needed for compiling programs that use
+ libofdcpp. 

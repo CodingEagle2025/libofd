@@ -1,0 +1,3 @@
+usr/include/ofd/*
+usr/lib/*/libofdcpp.so
+usr/lib/*/cmake/ofdcpp/*.cmake 
