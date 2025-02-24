@@ -1,3 +1,8 @@
+// Copyright (C) 2025, CodingEagle2025
+// SPDX-FileCopyrightText: 2025 
+//
+// SPDX-License-Identifier: MIT
+
 #include "ofd/ofd_writer.h"
 #include <QDir>
 #include <QFile>
