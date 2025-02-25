@@ -1,6 +1,5 @@
 #!/usr/bin/make -f
 include /usr/share/dpkg/default.mk
-export QT_SELECT=5
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 %:
@@ -12,7 +11,9 @@ override_dh_auto_configure:
 		-DCMAKE_INSTALL_PREFIX=/usr \
 		-DAPP_VERSION=$(DEB_VERSION_UPSTREAM) \
 		-DVERSION=$(DEB_VERSION_UPSTREAM) \
-		-DLIB_INSTALL_DIR=/usr/lib/$(DEB_HOST_MULTIARCH)
+		-DLIB_INSTALL_DIR=/usr/lib/$(DEB_HOST_MULTIARCH) \
+		-DBUILD_QT5=ON \
+		-DBUILD_QT6=ON
 
 override_dh_strip:
 
@@ -24,4 +25,4 @@ override_dh_missing:
 
 # Skip tests during build
 override_dh_auto_test:
-	: 
+	:

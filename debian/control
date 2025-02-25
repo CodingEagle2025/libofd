@@ -5,25 +5,55 @@ Maintainer: Liu zheng <liuzheng@uniontech.com>
 Build-Depends: debhelper-compat (= 11),
                cmake,
                qtbase5-dev,
-               libquazip5-dev
+               libquazip5-dev,
+               qt6-base-dev,
+               libquazip1-qt6-dev
 Standards-Version: 4.5.0
 Homepage: https://your-project-homepage.com
 
 Package: libofdcpp0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: C++ library for OFD file format handling
+Description: C++ library for OFD file format handling (Qt5 version)
  A C++ library for reading and writing OFD files.
  This library provides functionality for creating, reading, and manipulating
  OFD format documents.
+ .
+ This package contains the Qt5 version of the library.
 
 Package: libofdcpp-dev
 Section: libdevel
 Architecture: any
 Depends: libofdcpp0 (= ${binary:Version}),
          ${misc:Depends}
-Description: Development files for libofdcpp
+Description: Development files for libofdcpp (Qt5 version)
  Development files for the OFD format library.
  This package contains the development files for libofdcpp, including
  headers and static libraries needed for compiling programs that use
- libofdcpp. 
+ libofdcpp.
+ .
+ This package contains the Qt5 version of the development files.
+
+Package: libofdcpp6-0
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: C++ library for OFD file format handling (Qt6 version)
+ A C++ library for reading and writing OFD files.
+ This library provides functionality for creating, reading, and manipulating
+ OFD format documents.
+ .
+ This package contains the Qt6 version of the library.
+
+Package: libofdcpp6-dev
+Section: libdevel
+Architecture: any
+Depends: libofdcpp6-0 (= ${binary:Version}),
+         libofdcpp-dev,
+         ${misc:Depends}
+Description: Development files for libofdcpp (Qt6 version)
+ Development files for the OFD format library.
+ This package contains the development files for libofdcpp, including
+ headers and static libraries needed for compiling programs that use
+ libofdcpp.
+ .
+ This package contains the Qt6 version of the development files.

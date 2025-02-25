@@ -1,0 +1,3 @@
+usr/lib/*/libofdcpp6.so
+usr/lib/*/cmake/ofdcpp6/*.cmake
+usr/lib/*/pkgconfig/libofdcpp6.pc
